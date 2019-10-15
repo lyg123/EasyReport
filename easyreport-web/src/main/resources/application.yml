@@ -1,5 +1,5 @@
 server:
-  port: @server.port@
+  port: 19099
   error:
     whitelabel:
       enabled: false
@@ -15,26 +15,26 @@ server:
 easytoolsoft:
     easyreport:
         common:
-            item1: '@easytoolsoft.easyreport.common.item1@'
-            item2: '@easytoolsoft.easyreport.common.item2@'
+            item1: item1
+            item2: item2
         env:
             app-name: EasyReport
-            name: '@easytoolsoft.easyreport.env.name@'
-            version: '@easytoolsoft.easyreport.env.version@'
+            name: dev
+            version: 2.1
         member:
             datasource:
-                driver-class-name: org.h2.Driver
-                password: '@easytoolsoft.easyreport.member.datasource.password@'
-                url: '@easytoolsoft.easyreport.member.datasource.url@'
-                username: '@easytoolsoft.easyreport.member.datasource.username@'
+                driver-class-name: com.mysql.jdbc.Driver
+                password: 123456
+                url: jdbc:mysql://localhost:3306/easyreport?tinyInt1isBit=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull
+                username: root
         meta:
             datasource:
-                driver-class-name: org.h2.Driver
-                password: '@easytoolsoft.easyreport.meta.datasource.password@'
-                url: '@easytoolsoft.easyreport.meta.datasource.url@'
-                username: '@easytoolsoft.easyreport.meta.datasource.username@'
+                driver-class-name: com.mysql.jdbc.Driver
+                password: 123456
+                url: jdbc:mysql://localhost:3306/easyreport?tinyInt1isBit=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull
+                username: root
         shiro:
-            filters: '@easytoolsoft.easyreport.shiro.filters@'
+            filters: authc,membership
 
 #
 # spring
@@ -54,19 +54,19 @@ spring:
             enabled: true
             path: /h2
     jpa:
-        database-platform: org.hibernate.dialect.H2Dialect
+        database-platform: org.hibernate.dialect.MysqlDialect
         hibernate:
             ddl-auto: none
 #
 # logging
 #
 logging:
-  config: @logging.config@
-  path: @logging.path@
+  config: classpath:conf/logging/logback-spring.xml
+  path: easyreport-web/target/logs
   level:
-    default: @logging.level.default@
-    ucenter: @logging.level.easyreport@
-    mybatis: @logging.level.mybatis@
+    default: INFO
+    ucenter: debug
+    mybatis: debug
 #
 # management
 #

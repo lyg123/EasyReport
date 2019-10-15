@@ -1,4 +1,4 @@
-set mode MySQL;
+set mode easyreport;
 
 -- ----------------------------
 -- Records of ezrpt_member_module

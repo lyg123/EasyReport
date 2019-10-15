@@ -1,6 +1,6 @@
 
 
-set mode MySQL;
+set mode easyreport;
 
 -- ALTER USER SA SET PASSWORD 'pw';
 
