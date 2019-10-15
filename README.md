@@ -1,4 +1,8 @@
 写在前面，自己的想法写的wiki
+https://github.com/lyg123/EasyReport/wiki
+
+
+==========
 EasyReport
 ==========
 
